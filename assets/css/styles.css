@@ -250,3 +250,20 @@ body {
   line-height: 1.7;
   font-style: italic;
 }
+
+/* SCROLL ANIMATIONS */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.25s ease, transform 1.25s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in.hidden {
+  opacity: 0;
+  transform: translateY(-30px);
+}

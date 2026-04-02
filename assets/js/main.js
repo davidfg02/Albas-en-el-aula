@@ -15,4 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
       navMenu.classList.remove('open');
     });
   });
+
+  // SCROLL ANIMATIONS
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('hidden');
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+        entry.target.classList.add('hidden');
+      }
+    });
+  }, { threshold: 0.75 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 });
