@@ -109,3 +109,49 @@ body {
     padding: 12px 24px;
   }
 }
+
+/* HERO */
+#hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #b8e0eb;
+}
+
+.logo {
+  width: 200px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+#hero h1 {
+  font-size: 2rem;
+  color: #2a2a2a;
+  margin-bottom: 16px;
+  max-width: 600px;
+}
+
+#hero p {
+  font-size: 1.1rem;
+  color: #444;
+  max-width: 550px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.btn {
+  background-color: #f4a261;
+  color: white;
+  padding: 14px 32px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #e76f51;
+}
