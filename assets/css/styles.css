@@ -155,3 +155,98 @@ body {
 .btn:hover {
   background-color: #e76f51;
 }
+
+/* QUIÉNES SOMOS */
+#quienes-somos {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+#quienes-somos h2 {
+  font-size: 1.8rem;
+  color: #2a6a7a;
+  margin-bottom: 8px;
+}
+
+.seccion-subtitulo {
+  font-size: 1rem;
+  color: #888;
+  margin-bottom: 40px;
+}
+
+.albas-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+/*ALBITA*/
+.albita-card {
+  background-color: #f0f8fc;
+  border-radius: 20px;
+  padding: 32px 24px;
+  width: 240px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.albita-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+}
+
+.albita-foto {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.albita-card h3 {
+  font-size: 1.2rem;
+  color: #2a6a7a;
+  margin-bottom: 10px;
+}
+
+.albita-card p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+}
+/*ALBA*/
+.alba-card {
+  background-color: #fef3ec;
+  border-radius: 20px;
+  padding: 32px 24px;
+  width: 240px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.alba-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+}
+
+.alba-foto {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+.alba-card h3 {
+  font-size: 1.2rem;
+  color: #2a6a7a;
+  margin-bottom: 10px;
+}
+
+.alba-card p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.seccion-descripcion {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+  font-style: italic;
+}
