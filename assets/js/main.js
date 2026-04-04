@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
         entry.target.classList.add('hidden');
       }
     });
-  }, { threshold: 0.75 });
+  }, { threshold: 0.75});
+
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 });
