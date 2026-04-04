@@ -24,7 +24,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 24px;
+  padding: 10px 24px;
   background-color: #b8e0eb;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
@@ -451,4 +451,102 @@ body {
   font-size: 0.85rem;
   color: #555;
   line-height: 1.6;
+}
+
+/* FOOTER */
+footer {
+  background-color: #b8e0eb;
+  padding: 60px 20px 30px;
+  text-align: center;
+}
+
+.footer-contenido {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.footer-redes, .footer-formulario {
+  max-width: 340px;
+}
+
+.footer-redes h2, .footer-formulario h2 {
+  font-size: 1.4rem;
+  color: #2a6a7a;
+  margin-bottom: 8px;
+}
+
+.footer-redes p, .footer-formulario p {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.redes-botones {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.red-btn {
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.red-btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.85;
+}
+
+.tiktok {
+  background-color: #2a2a2a;
+  color: white;
+}
+
+.instagram {
+  background-color: #e1306c;
+  color: white;
+}
+
+.formulario {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.formulario input {
+  padding: 12px 16px;
+  border-radius: 30px;
+  border: 2px solid #b8e0eb;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s;
+  width: 220px;
+}
+
+.formulario input:focus {
+  border-color: #2a6a7a;
+}
+
+.formulario-mensaje {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #2a6a7a;
+  font-weight: 500;
+  min-height: 20px;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 20px;
 }

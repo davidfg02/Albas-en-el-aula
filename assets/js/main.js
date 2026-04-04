@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entry.target.classList.add('hidden');
       }
     });
-  }, { threshold: 0.5});
+  }, { threshold: 0.25});
 
 // FILTRO DE MATERIALES
 const filtros = document.querySelectorAll('.filtro-btn');
@@ -49,6 +49,25 @@ filtros.forEach(btn => {
       }
     });
   });
+});
+
+// FORMULARIO SUSCRIPCIÓN
+const btnSuscribir = document.getElementById('btn-suscribir');
+const emailInput = document.getElementById('email-input');
+const formularioMensaje = document.getElementById('formulario-mensaje');
+
+btnSuscribir.addEventListener('click', () => {
+  const email = emailInput.value.trim();
+
+  if (!email || !email.includes('@')) {
+    formularioMensaje.textContent = '⚠️ Introduce un email válido.';
+    formularioMensaje.style.color = '#e76f51';
+    return;
+  }
+
+  formularioMensaje.textContent = '✅ ¡Gracias! Te avisaremos cuando haya novedades.';
+  formularioMensaje.style.color = '#2a6a7a';
+  emailInput.value = '';
 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 });
