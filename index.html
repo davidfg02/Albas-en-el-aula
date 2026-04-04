@@ -58,28 +58,106 @@
     <!-- QUÉ OFRECEMOS -->
     <section id="ofrecemos" class="fade-in">
         <div class="seccion-contenido">
-        <h2>¿Qué ofrecemos?</h2>
-        <p class="seccion-subtitulo">Todo lo que necesitas para tus opos y tu aula</p>
-        <div class="ofrecemos-container">
-            <div class="ofrecemos-card">
-                <div class="ofrecemos-icono">📝</div>
-                <h3>Temario y oposiciones</h3>
-                <p>Apuntes organizados y esquemas para que vayas a tu examen con todo bajo control.</p>
+            <h2>¿Qué ofrecemos?</h2>
+            <p class="seccion-subtitulo">Todo lo que necesitas para tus opos y tu aula</p>
+            <div class="ofrecemos-container">
+                <div class="ofrecemos-card">
+                    <div class="ofrecemos-icono">📝</div>
+                    <h3>Temario y oposiciones</h3>
+                    <p>Apuntes organizados y esquemas para que vayas a tu examen con todo bajo control.</p>
+                </div>
+                <div class="ofrecemos-card">
+                    <div class="ofrecemos-icono">🎨</div>
+                    <h3>Recursos para el aula</h3>
+                    <p>Fichas, actividades y propuestas metodológicas pensadas para educación infantil.</p>
+                </div>
+                <div class="ofrecemos-card">
+                    <div class="ofrecemos-icono">💡</div>
+                    <h3>Consejos y metodología</h3>
+                    <p>Ideas prácticas para el día a día, tanto si ya estás en el aula como si estás preparándote.</p>
+                </div>
             </div>
-            <div class="ofrecemos-card">
-                <div class="ofrecemos-icono">🎨</div>
-                <h3>Recursos para el aula</h3>
-                <p>Fichas, actividades y propuestas metodológicas pensadas para educación infantil.</p>
+    </section>
+
+    <!-- MATERIALES -->
+    <section id="materiales" class="fade-in">
+        <div class="seccion-contenido">
+            <h2>Nuestros materiales</h2>
+            <p class="seccion-subtitulo">Todo lo que necesitas, listo para descargar</p>
+
+            <div class="filtros">
+                <button class="filtro-btn active" data-filtro="todos">Todos</button>
+                <button class="filtro-btn" data-filtro="oposiciones">Oposiciones</button>
+                <button class="filtro-btn" data-filtro="aula">Para el aula</button>
             </div>
-            <div class="ofrecemos-card">
-                <div class="ofrecemos-icono">💡</div>
-                <h3>Consejos y metodología</h3>
-                <p>Ideas prácticas para el día a día, tanto si ya estás en el aula como si estás preparándote.</p>
+
+            <div class="materiales-grid">
+
+                <div class="material-card" data-categoria="oposiciones">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="material-imagen">📄</div>
+                            <h3>Temario Bloque 1</h3>
+                            <p>Apuntes completos del primer bloque con esquemas y resúmenes.</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Temario Bloque 1</h3>
+                            <p>Apuntes organizados, esquemas y resúmenes para que vayas a tu examen con todo bajo
+                                control.</p>
+                            <a href="#" class="btn">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="material-card" data-categoria="oposiciones">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="material-imagen">📝</div>
+                            <h3>Simulacro de Examen</h3>
+                            <p>Preguntas tipo test y casos prácticos para practicar.</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Simulacro de Examen</h3>
+                            <p>Preguntas tipo test y casos prácticos para practicar antes del examen real.</p>
+                            <a href="#" class="btn">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="material-card" data-categoria="aula">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="material-imagen">🎨</div>
+                            <h3>Fichas de Infantil</h3>
+                            <p>Pack de fichas de trabajo listas para imprimir.</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Fichas de Infantil</h3>
+                            <p>Pack de fichas de trabajo para educación infantil, listas para imprimir y usar en clase.
+                            </p>
+                            <a href="#" class="btn" onclick="return false;">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="material-card" data-categoria="aula">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="material-imagen">💡</div>
+                            <h3>Guía de Metodología</h3>
+                            <p>Estrategias y consejos para aplicar en el aula.</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Guía de Metodología</h3>
+                            <p>Estrategias y consejos prácticos para aplicar en el aula desde el primer día.</p>
+                            <a href="#" class="btn" onclick="return false;">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
-
-   
     <script src="assets/js/main.js"></script>
 </body>
 

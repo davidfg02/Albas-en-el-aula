@@ -27,8 +27,28 @@ document.addEventListener('DOMContentLoaded', () => {
         entry.target.classList.add('hidden');
       }
     });
-  }, { threshold: 0.75});
+  }, { threshold: 0.5});
 
+// FILTRO DE MATERIALES
+const filtros = document.querySelectorAll('.filtro-btn');
+const materialesCards = document.querySelectorAll('.material-card');
 
+filtros.forEach(btn => {
+  btn.addEventListener('click', (event) => {
+    event.preventDefault();
+    filtros.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filtro = btn.dataset.filtro;
+
+    materialesCards.forEach(card => {
+      if (filtro === 'todos' || card.dataset.categoria === filtro) {
+        card.classList.remove('oculta');
+      } else {
+        card.classList.add('oculta');
+      }
+    });
+  });
+});
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 });
