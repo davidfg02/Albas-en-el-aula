@@ -29,6 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.25});
 
+  // BANNER
+const banner = document.getElementById('banner');
+const bannerCerrar = document.getElementById('banner-cerrar');
+
+bannerCerrar.addEventListener('click', () => {
+  banner.style.display = 'none';
+});
+
 // FILTRO DE MATERIALES
 const filtros = document.querySelectorAll('.filtro-btn');
 const materialesCards = document.querySelectorAll('.material-card');
