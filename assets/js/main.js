@@ -37,25 +37,47 @@ bannerCerrar.addEventListener('click', () => {
   banner.style.display = 'none';
 });
 
-// FILTRO DE MATERIALES
+// FILTROS Y SUBFILTROS DE MATERIALES
 const filtros = document.querySelectorAll('.filtro-btn');
+const subfiltros = document.querySelectorAll('.subfiltro-btn');
 const materialesCards = document.querySelectorAll('.material-card');
 
+let filtroActivo = 'todos';
+let subfiltroActivo = 'todos';
+
+function aplicarFiltros() {
+  materialesCards.forEach(card => {
+    const categoria = card.dataset.categoria;
+    const subfiltro = card.dataset.subfiltro;
+
+    const pasaCategoria = filtroActivo === 'todos' || categoria === filtroActivo;
+    const pasaSubfiltro = subfiltroActivo === 'todos' || subfiltro === subfiltroActivo;
+
+    if (pasaCategoria && pasaSubfiltro) {
+      card.classList.remove('oculta');
+    } else {
+      card.classList.add('oculta');
+    }
+  });
+}
+
 filtros.forEach(btn => {
-  btn.addEventListener('click', (event) => {
-    event.preventDefault();
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
     filtros.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    filtroActivo = btn.dataset.filtro;
+    aplicarFiltros();
+  });
+});
 
-    const filtro = btn.dataset.filtro;
-
-    materialesCards.forEach(card => {
-      if (filtro === 'todos' || card.dataset.categoria === filtro) {
-        card.classList.remove('oculta');
-      } else {
-        card.classList.add('oculta');
-      }
-    });
+subfiltros.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    subfiltros.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    subfiltroActivo = btn.dataset.subfiltro;
+    aplicarFiltros();
   });
 });
 

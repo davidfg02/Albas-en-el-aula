@@ -26,7 +26,6 @@
             <span></span>
         </button>
         <ul class="nav-menu" id="nav-menu">
-            <li><a href="#hero">Inicio</a></li>
             <li><a href="#quienes-somos">Quiénes somos</a></li>
             <li><a href="#ofrecemos">Qué ofrecemos</a></li>
             <li><a href="#materiales">Materiales</a></li>
@@ -91,11 +90,21 @@
             <h2>Nuestros materiales</h2>
             <p class="seccion-subtitulo">Todo lo que necesitas, listo para descargar</p>
 
-            <div class="filtros">
-                <button class="filtro-btn active" data-filtro="todos">Todos</button>
-                <button class="filtro-btn" data-filtro="oposiciones">Oposiciones</button>
-                <button class="filtro-btn" data-filtro="aula">Para el aula</button>
-            </div>
+            <div class="filtros-wrapper">
+  <div class="filtros">
+    <button class="filtro-btn active" data-filtro="todos">Todos</button>
+    <button class="filtro-btn" data-filtro="oposiciones">Oposiciones</button>
+    <button class="filtro-btn" data-filtro="aula">Para el aula</button>
+  </div>
+  <div class="filtros-separador"></div>
+  <div class="subfiltros">
+    <span class="subfiltros-label">Temática:</span>
+    <button class="subfiltro-btn active" data-subfiltro="todos">Todas</button>
+    <button class="subfiltro-btn" data-subfiltro="cognitivo">Desarrollo cognitivo</button>
+    <button class="subfiltro-btn" data-subfiltro="lectoescritura">Lectoescritura</button>
+    <button class="subfiltro-btn" data-subfiltro="logico">Lógico-matemáticos</button>
+  </div>
+</div>
 
             <div class="materiales-grid">
 
