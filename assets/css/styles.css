@@ -97,6 +97,11 @@ body {
   color: #f4a261;
 }
 
+.nav-menu a.activo {
+  color: #f4a261;
+  font-weight: 700;
+}
+
 /* HAMBURGUESA */
 .hamburger {
   display: none;
@@ -744,4 +749,32 @@ footer {
 
 .modal-imagen-grande.visible {
   display: block;
+}
+
+/* BOTÓN VOLVER ARRIBA */
+.btn-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background-color: #2a6a7a;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, background-color 0.3s;
+  z-index: 150;
+}
+
+.btn-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-top:hover {
+  background-color: #f4a261;
 }

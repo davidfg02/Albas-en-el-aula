@@ -16,6 +16,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // SECCIÓN ACTIVA EN NAVBAR
+const secciones = document.querySelectorAll('section, footer');
+const navLinks = document.querySelectorAll('.nav-menu a');
+
+const observerNav = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.remove('activo');
+        if (link.getAttribute('href') === `#${entry.target.id}`) {
+          link.classList.add('activo');
+        }
+      });
+    }
+  });
+}, { threshold: 0.4 });
+
+secciones.forEach(seccion => observerNav.observe(seccion));
+
   // SCROLL ANIMATIONS
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -79,6 +98,21 @@ subfiltros.forEach(btn => {
     subfiltroActivo = btn.dataset.subfiltro;
     aplicarFiltros();
   });
+});
+
+// BOTÓN VOLVER ARRIBA
+const btnTop = document.getElementById('btn-top');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) {
+    btnTop.classList.add('visible');
+  } else {
+    btnTop.classList.remove('visible');
+  }
+});
+
+btnTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 // FORMULARIO SUSCRIPCIÓN
