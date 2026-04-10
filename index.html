@@ -92,27 +92,27 @@
             <p class="seccion-subtitulo">Todo lo que necesitas, listo para descargar</p>
 
             <div class="filtros-wrapper">
-  <div class="filtros">
-    <button class="filtro-btn active" data-filtro="todos">Todos</button>
-    <button class="filtro-btn" data-filtro="oposiciones">Oposiciones</button>
-    <button class="filtro-btn" data-filtro="aula">Para el aula</button>
-  </div>
-  <div class="filtros-separador"></div>
-  <div class="subfiltros">
-    <span class="subfiltros-label">Temática:</span>
-    <button class="subfiltro-btn active" data-subfiltro="todos">Todas</button>
-    <button class="subfiltro-btn" data-subfiltro="cognitivo">Desarrollo cognitivo</button>
-    <button class="subfiltro-btn" data-subfiltro="lectoescritura">Lectoescritura</button>
-    <button class="subfiltro-btn" data-subfiltro="logico">Lógico-matemáticos</button>
-  </div>
-</div>
+                <div class="filtros">
+                    <button class="filtro-btn active" data-filtro="todos">Todos</button>
+                    <button class="filtro-btn" data-filtro="oposiciones">Oposiciones</button>
+                    <button class="filtro-btn" data-filtro="aula">Para el aula</button>
+                </div>
+                <div class="filtros-separador"></div>
+                <div class="subfiltros">
+                    <span class="subfiltros-label">Temática:</span>
+                    <button class="subfiltro-btn active" data-subfiltro="todos">Todas</button>
+                    <button class="subfiltro-btn" data-subfiltro="cognitivo">Desarrollo cognitivo</button>
+                    <button class="subfiltro-btn" data-subfiltro="lectoescritura">Lectoescritura</button>
+                    <button class="subfiltro-btn" data-subfiltro="logico">Lógico-matemáticos</button>
+                </div>
+            </div>
 
             <div class="materiales-grid">
 
                 <div class="material-card" data-categoria="oposiciones">
                     <div class="card-inner">
                         <div class="card-front">
-                            <div class="material-imagen">📄</div>
+                            <div class="material-imagen">📚</div>
                             <h3>Temario Bloque 1</h3>
                             <p>Apuntes completos del primer bloque con esquemas y resúmenes.</p>
                         </div>
@@ -206,7 +206,22 @@
         <p class="footer-copy">© 2025 Albas en el Aula · Hecho con ❤️</p>
     </footer>
     <!-- BOTÓN VOLVER ARRIBA -->
-<button class="btn-top" id="btn-top">↑</button>
+    <button class="btn-top" id="btn-top">↑</button>
+    <!-- POPUP NEWSLETTER -->
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup">
+            <button class="popup-cerrar" id="popup-cerrar">✕</button>
+            <div class="popup-imagen">📬</div>
+            <h3>¿No quieres perderte nada?</h3>
+            <p>Suscríbete y sé la primera en enterarte de nuevos materiales y novedades.</p>
+            <div class="popup-formulario">
+                <input type="email" id="popup-email" placeholder="tu@email.com" />
+                <button class="btn" id="popup-btn">Suscribirme</button>
+            </div>
+            <p class="popup-mensaje" id="popup-mensaje"></p>
+            <button class="popup-omitir" id="popup-omitir">Ahora no</button>
+        </div>
+    </div>
     <script src="assets/js/main.js"></script>
 </body>
 
