@@ -58,7 +58,8 @@ bannerCerrar.addEventListener('click', () => {
 
 // FILTROS Y SUBFILTROS DE MATERIALES
 const filtros = document.querySelectorAll('.filtro-btn');
-const subfiltros = document.querySelectorAll('.subfiltro-btn');
+const subfiltrosAula = document.getElementById('subfiltros-aula');
+const subfiltrosOposiciones = document.getElementById('subfiltros-oposiciones');
 const materialesCards = document.querySelectorAll('.material-card');
 
 let filtroActivo = 'todos';
@@ -86,14 +87,28 @@ filtros.forEach(btn => {
     filtros.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     filtroActivo = btn.dataset.filtro;
+
+    subfiltrosAula.classList.remove('visible');
+    subfiltrosOposiciones.classList.remove('visible');
+
+    subfiltroActivo = 'todos';
+    document.querySelectorAll('.subfiltro-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.subfiltro-btn[data-subfiltro="todos"]').forEach(b => b.classList.add('active'));
+
+    if (filtroActivo === 'aula') {
+      subfiltrosAula.classList.add('visible');
+    } else if (filtroActivo === 'oposiciones') {
+      subfiltrosOposiciones.classList.add('visible');
+    }
+
     aplicarFiltros();
   });
 });
 
-subfiltros.forEach(btn => {
+document.querySelectorAll('.subfiltro-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
-    subfiltros.forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.subfiltro-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     subfiltroActivo = btn.dataset.subfiltro;
     aplicarFiltros();
@@ -134,9 +149,8 @@ btnSuscribir.addEventListener('click', () => {
   emailInput.value = '';
 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-});
 
-// POPUP NEWSLETTER
+  // POPUP NEWSLETTER
 const popupOverlay = document.getElementById('popup-overlay');
 const popupCerrar = document.getElementById('popup-cerrar');
 const popupOmitir = document.getElementById('popup-omitir');
@@ -174,3 +188,6 @@ popupBtn.addEventListener('click', () => {
 
   setTimeout(() => cerrarPopup(), 2000);
 });
+});
+
+

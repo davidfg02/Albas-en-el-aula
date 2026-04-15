@@ -47,13 +47,13 @@
         <p class="seccion-subtitulo">Dos Albas, una misma pasion por la educacion</p>
         <div class="albas-container">
             <div class="albita-card">
-                 <img src="assets/img/albita-perfil.jpg" alt="Albita" class="foto-perfil-card" />
+                <img src="assets/img/albita-perfil.jpg" alt="Albita" class="foto-perfil-card" />
                 <h3>Albita</h3>
                 <p>Maestra de Educación Infantil, con experiencia en aulas de 3 a 6 años. Apasionada por la
                     creatividad y el aprendizaje lúdico.</p>
             </div>
             <div class="alba-card">
-                <img src="assets/img/alba-perfil.jpg" alt="Alba" class="foto-perfil-card" />
+                <img src="#" alt="Alba" class="foto-perfil-card" />
                 <h3>Alba</h3>
                 <p>Maestra de Educación Infantil, con experiencia en aulas de 3 a 6 años. Apasionada por la
                     creatividad y el aprendizaje lúdico.</p>
@@ -69,13 +69,13 @@
             <div class="ofrecemos-container">
                 <div class="ofrecemos-card">
                     <div class="ofrecemos-icono">📝</div>
-                    <h3>Temario y oposiciones</h3>
-                    <p>Apuntes organizados y esquemas para que vayas a tu examen con todo bajo control.</p>
+                    <h3>Recursos para opositores</h3>
+                    <p>Estudia, repasa y organiza tu oposición de forma clara, práctica y eficaz.</p>
                 </div>
                 <div class="ofrecemos-card">
                     <div class="ofrecemos-icono">🎨</div>
                     <h3>Recursos para el aula</h3>
-                    <p>Fichas, actividades y propuestas metodológicas pensadas para educación infantil.</p>
+                    <p>Actividades, ideas y recursos prácticos pensados para educación infantil.</p>
                 </div>
                 <div class="ofrecemos-card">
                     <div class="ofrecemos-icono">💡</div>
@@ -89,7 +89,7 @@
     <section id="materiales" class="fade-in">
         <div class="seccion-contenido">
             <h2>Nuestros materiales</h2>
-            <p class="seccion-subtitulo">Todo lo que necesitas, listo para descargar</p>
+            <p class="seccion-subtitulo">Todo lo que necesitas, listo para comprar</p>
 
             <div class="filtros-wrapper">
                 <div class="filtros">
@@ -98,18 +98,27 @@
                     <button class="filtro-btn" data-filtro="aula">Para el aula</button>
                 </div>
                 <div class="filtros-separador"></div>
-                <div class="subfiltros">
+                <div class="subfiltros" id="subfiltros-aula">
                     <span class="subfiltros-label">Temática:</span>
                     <button class="subfiltro-btn active" data-subfiltro="todos">Todas</button>
                     <button class="subfiltro-btn" data-subfiltro="cognitivo">Desarrollo cognitivo</button>
                     <button class="subfiltro-btn" data-subfiltro="lectoescritura">Lectoescritura</button>
                     <button class="subfiltro-btn" data-subfiltro="logico">Lógico-matemáticos</button>
+                    <button class="subfiltro-btn" data-subfiltro="desarrollo-simbolico">Desarrollo simbólico</button>
+                    <button class="subfiltro-btn" data-subfiltro="expresion-musical">Expresión musical</button>
+                    <button class="subfiltro-btn" data-subfiltro="juego-simbolico">Juego simbólico</button>
+                </div>
+                <div class="subfiltros" id="subfiltros-oposiciones">
+                    <span class="subfiltros-label">Temática:</span>
+                    <button class="subfiltro-btn active" data-subfiltro="todos">Todas</button>
+                    <button class="subfiltro-btn" data-subfiltro="recursos">Recursos</button>
+                    <button class="subfiltro-btn" data-subfiltro="consejos">Consejos</button>
                 </div>
             </div>
 
             <div class="materiales-grid">
 
-                <div class="material-card" data-categoria="oposiciones" data-subfiltro="lectoescritura">
+                <div class="material-card" data-categoria="oposiciones" data-subfiltro="recursos">
                     <div class="card-inner">
                         <div class="card-front">
                             <img src="assets/img/flashcard-temas.jpg" alt="Flashcard Temas" class="imagenes-card" />
@@ -118,17 +127,19 @@
                         </div>
                         <div class="card-back">
                             <h3>Flashcard Temas</h3>
-                            <p>Flashcard de repaso de los temas del bloque de desarrollo para que vayas a tu examen con todo bajo
+                            <p>Flashcard de repaso de los temas del bloque de desarrollo para que vayas a tu examen con
+                                todo bajo
                                 control.</p>
                             <a href="#" class="btn">Comprar</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="material-card" data-categoria="oposiciones" data-subfiltro="">
+                <div class="material-card" data-categoria="oposiciones" data-subfiltro="recursos">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="assets/img/preguntas-tribunal.jpg" alt="Preguntas del tribunal" class="imagenes-card" />
+                            <img src="assets/img/preguntas-tribunal.jpg" alt="Preguntas del tribunal"
+                                class="imagenes-card" />
                             <h3>Preguntas del tribunal</h3>
                             <p>Posibles preguntas del tribunal para preparar tu examen.</p>
                         </div>
@@ -140,10 +151,11 @@
                     </div>
                 </div>
 
-                <div class="material-card" data-categoria="oposiciones" data-subfiltro="">
+                <div class="material-card" data-categoria="oposiciones" data-subfiltro="recursos">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="assets/img/cuaderno-trabajo.jpg" alt="Cuaderno de trabajo" class="imagenes-card" />
+                            <img src="assets/img/cuaderno-trabajo.jpg" alt="Cuaderno de trabajo"
+                                class="imagenes-card" />
                             <h3>Cuaderno de Trabajo</h3>
                             <p>Pack de fichas de trabajo listas para imprimir.</p>
                         </div>

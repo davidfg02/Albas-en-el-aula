@@ -427,17 +427,21 @@ body {
 }
 
 .filtros-separador {
-  width: 40px;
-  height: 1px;
+  width: 400px;
+  height: 2px;
   background-color: #b8e0eb;
 }
 
 .subfiltros {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 8px;
   flex-wrap: wrap;
+}
+
+.subfiltros.visible {
+  display: flex;
 }
 
 .subfiltros-label {
