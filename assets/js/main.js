@@ -70,6 +70,14 @@ function aplicarFiltros() {
     const categoria = card.dataset.categoria;
     const subfiltro = card.dataset.subfiltro;
 
+    const esSoloCategoria = card.classList.contains('solo-categoria') && filtroActivo === 'todos';
+    const esSoloSubfiltro = card.classList.contains('solo-subfiltro') && subfiltroActivo !== card.dataset.subfiltro;
+
+    if(esSoloCategoria || esSoloSubfiltro) {
+      card.classList.add('oculta');
+      return;
+    }
+
     const pasaCategoria = filtroActivo === 'todos' || categoria === filtroActivo;
     const pasaSubfiltro = subfiltroActivo === 'todos' || subfiltro === subfiltroActivo;
 
@@ -114,6 +122,8 @@ document.querySelectorAll('.subfiltro-btn').forEach(btn => {
     aplicarFiltros();
   });
 });
+
+aplicarFiltros();
 
 // BOTÓN VOLVER ARRIBA
 const btnTop = document.getElementById('btn-top');
