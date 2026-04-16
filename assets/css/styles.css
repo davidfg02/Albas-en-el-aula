@@ -299,6 +299,11 @@ body {
   line-height: 1.6;
 }
 
+.alba-icono {
+  font-size: 6.8rem;
+  margin-bottom: 16px;
+}
+
 .seccion-descripcion {
   max-width: 600px;
   margin: 0 auto;

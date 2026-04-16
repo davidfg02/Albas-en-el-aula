@@ -179,6 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
 
+  /*
   // POPUP NEWSLETTER
   const popupOverlay = document.getElementById("popup-overlay");
   const popupCerrar = document.getElementById("popup-cerrar");
@@ -218,6 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => cerrarPopup(), 2000);
   });
+  */
 
   // FLIP EN MÓVIL
   const isMobile = () => window.innerWidth <= 768;
