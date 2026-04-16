@@ -1,203 +1,233 @@
-document.addEventListener('DOMContentLoaded', () => {
-
+document.addEventListener("DOMContentLoaded", () => {
   // MENÚ HAMBURGUESA
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('nav-menu');
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
 
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('open');
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("open");
   });
 
-  document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('open');
+  document.querySelectorAll(".nav-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("open");
     });
   });
 
   // SECCIÓN ACTIVA EN NAVBAR
-const secciones = document.querySelectorAll('section, footer');
-const navLinks = document.querySelectorAll('.nav-menu a');
+  const secciones = document.querySelectorAll("section, footer");
+  const navLinks = document.querySelectorAll(".nav-menu a");
 
-const observerNav = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(link => {
-        link.classList.remove('activo');
-        if (link.getAttribute('href') === `#${entry.target.id}`) {
-          link.classList.add('activo');
+  const observerNav = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => {
+            link.classList.remove("activo");
+            if (link.getAttribute("href") === `#${entry.target.id}`) {
+              link.classList.add("activo");
+            }
+          });
         }
       });
-    }
-  });
-}, { threshold: 0.4 });
+    },
+    { threshold: 0.4 },
+  );
 
-secciones.forEach(seccion => observerNav.observe(seccion));
+  secciones.forEach((seccion) => observerNav.observe(seccion));
 
   // SCROLL ANIMATIONS
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.remove('hidden');
-        entry.target.classList.add('visible');
-      } else {
-        entry.target.classList.remove('visible');
-        entry.target.classList.add('hidden');
-      }
-    });
-  }, { threshold: 0.25});
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("hidden");
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible");
+          entry.target.classList.add("hidden");
+        }
+      });
+    },
+    { threshold: 0.25 },
+  );
 
   // BANNER
-const banner = document.getElementById('banner');
-const bannerCerrar = document.getElementById('banner-cerrar');
+  const banner = document.getElementById("banner");
+  const bannerCerrar = document.getElementById("banner-cerrar");
 
-bannerCerrar.addEventListener('click', () => {
-  banner.style.display = 'none';
-});
+  bannerCerrar.addEventListener("click", () => {
+    banner.style.display = "none";
+  });
 
-// FILTROS Y SUBFILTROS DE MATERIALES
-const filtros = document.querySelectorAll('.filtro-btn');
-const subfiltrosAula = document.getElementById('subfiltros-aula');
-const subfiltrosOposiciones = document.getElementById('subfiltros-oposiciones');
-const materialesCards = document.querySelectorAll('.material-card');
+  // FILTROS Y SUBFILTROS DE MATERIALES
+  const filtros = document.querySelectorAll(".filtro-btn");
+  const subfiltrosAula = document.getElementById("subfiltros-aula");
+  const subfiltrosOposiciones = document.getElementById(
+    "subfiltros-oposiciones",
+  );
+  const materialesCards = document.querySelectorAll(".material-card");
 
-let filtroActivo = 'todos';
-let subfiltroActivo = 'todos';
+  let filtroActivo = "todos";
+  let subfiltroActivo = "todos";
 
-function aplicarFiltros() {
-  materialesCards.forEach(card => {
-    const categoria = card.dataset.categoria;
-    const subfiltro = card.dataset.subfiltro;
+  function aplicarFiltros() {
+    materialesCards.forEach((card) => {
+      const categoria = card.dataset.categoria;
+      const subfiltro = card.dataset.subfiltro;
 
-    const esSoloCategoria = card.classList.contains('solo-categoria') && filtroActivo === 'todos';
-    const esSoloSubfiltro = card.classList.contains('solo-subfiltro') && subfiltroActivo !== card.dataset.subfiltro;
+      const esSoloCategoria =
+        card.classList.contains("solo-categoria") && filtroActivo === "todos";
+      const esSoloSubfiltro =
+        card.classList.contains("solo-subfiltro") &&
+        subfiltroActivo !== card.dataset.subfiltro;
 
-    if(esSoloCategoria || esSoloSubfiltro) {
-      card.classList.add('oculta');
+      if (esSoloCategoria || esSoloSubfiltro) {
+        card.classList.add("oculta");
+        return;
+      }
+
+      const pasaCategoria =
+        filtroActivo === "todos" || categoria === filtroActivo;
+      const pasaSubfiltro =
+        subfiltroActivo === "todos" || subfiltro === subfiltroActivo;
+
+      if (pasaCategoria && pasaSubfiltro) {
+        card.classList.remove("oculta");
+      } else {
+        card.classList.add("oculta");
+      }
+    });
+  }
+
+  filtros.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      filtros.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      filtroActivo = btn.dataset.filtro;
+
+      subfiltrosAula.classList.remove("visible");
+      subfiltrosOposiciones.classList.remove("visible");
+
+      subfiltroActivo = "todos";
+      document
+        .querySelectorAll(".subfiltro-btn")
+        .forEach((b) => b.classList.remove("active"));
+      document
+        .querySelectorAll('.subfiltro-btn[data-subfiltro="todos"]')
+        .forEach((b) => b.classList.add("active"));
+
+      if (filtroActivo === "aula") {
+        subfiltrosAula.classList.add("visible");
+      } else if (filtroActivo === "oposiciones") {
+        subfiltrosOposiciones.classList.add("visible");
+      }
+
+      aplicarFiltros();
+    });
+  });
+
+  document.querySelectorAll(".subfiltro-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      document
+        .querySelectorAll(".subfiltro-btn")
+        .forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      subfiltroActivo = btn.dataset.subfiltro;
+      aplicarFiltros();
+    });
+  });
+
+  aplicarFiltros();
+
+  // BOTÓN VOLVER ARRIBA
+  const btnTop = document.getElementById("btn-top");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+      btnTop.classList.add("visible");
+    } else {
+      btnTop.classList.remove("visible");
+    }
+  });
+
+  btnTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // FORMULARIO SUSCRIPCIÓN
+  const btnSuscribir = document.getElementById("btn-suscribir");
+  const emailInput = document.getElementById("email-input");
+  const formularioMensaje = document.getElementById("formulario-mensaje");
+
+  btnSuscribir.addEventListener("click", () => {
+    const email = emailInput.value.trim();
+
+    if (!email || !email.includes("@")) {
+      formularioMensaje.textContent = "⚠️ Introduce un email válido.";
+      formularioMensaje.style.color = "#e76f51";
       return;
     }
 
-    const pasaCategoria = filtroActivo === 'todos' || categoria === filtroActivo;
-    const pasaSubfiltro = subfiltroActivo === 'todos' || subfiltro === subfiltroActivo;
-
-    if (pasaCategoria && pasaSubfiltro) {
-      card.classList.remove('oculta');
-    } else {
-      card.classList.add('oculta');
-    }
+    formularioMensaje.textContent =
+      "✅ ¡Gracias! Te avisaremos cuando haya novedades.";
+    formularioMensaje.style.color = "#2a6a7a";
+    emailInput.value = "";
   });
-}
-
-filtros.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    filtros.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    filtroActivo = btn.dataset.filtro;
-
-    subfiltrosAula.classList.remove('visible');
-    subfiltrosOposiciones.classList.remove('visible');
-
-    subfiltroActivo = 'todos';
-    document.querySelectorAll('.subfiltro-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.subfiltro-btn[data-subfiltro="todos"]').forEach(b => b.classList.add('active'));
-
-    if (filtroActivo === 'aula') {
-      subfiltrosAula.classList.add('visible');
-    } else if (filtroActivo === 'oposiciones') {
-      subfiltrosOposiciones.classList.add('visible');
-    }
-
-    aplicarFiltros();
-  });
-});
-
-document.querySelectorAll('.subfiltro-btn').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.querySelectorAll('.subfiltro-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    subfiltroActivo = btn.dataset.subfiltro;
-    aplicarFiltros();
-  });
-});
-
-aplicarFiltros();
-
-// BOTÓN VOLVER ARRIBA
-const btnTop = document.getElementById('btn-top');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 400) {
-    btnTop.classList.add('visible');
-  } else {
-    btnTop.classList.remove('visible');
-  }
-});
-
-btnTop.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// FORMULARIO SUSCRIPCIÓN
-const btnSuscribir = document.getElementById('btn-suscribir');
-const emailInput = document.getElementById('email-input');
-const formularioMensaje = document.getElementById('formulario-mensaje');
-
-btnSuscribir.addEventListener('click', () => {
-  const email = emailInput.value.trim();
-
-  if (!email || !email.includes('@')) {
-    formularioMensaje.textContent = '⚠️ Introduce un email válido.';
-    formularioMensaje.style.color = '#e76f51';
-    return;
-  }
-
-  formularioMensaje.textContent = '✅ ¡Gracias! Te avisaremos cuando haya novedades.';
-  formularioMensaje.style.color = '#2a6a7a';
-  emailInput.value = '';
-});
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
 
   // POPUP NEWSLETTER
-const popupOverlay = document.getElementById('popup-overlay');
-const popupCerrar = document.getElementById('popup-cerrar');
-const popupOmitir = document.getElementById('popup-omitir');
-const popupBtn = document.getElementById('popup-btn');
-const popupEmail = document.getElementById('popup-email');
-const popupMensaje = document.getElementById('popup-mensaje');
+  const popupOverlay = document.getElementById("popup-overlay");
+  const popupCerrar = document.getElementById("popup-cerrar");
+  const popupOmitir = document.getElementById("popup-omitir");
+  const popupBtn = document.getElementById("popup-btn");
+  const popupEmail = document.getElementById("popup-email");
+  const popupMensaje = document.getElementById("popup-mensaje");
 
-setTimeout(() => {
-  popupOverlay.classList.add('activo');
-}, 3000);
+  setTimeout(() => {
+    popupOverlay.classList.add("activo");
+  }, 3000);
 
-function cerrarPopup() {
-  popupOverlay.classList.remove('activo');
-}
-
-popupCerrar.addEventListener('click', cerrarPopup);
-popupOmitir.addEventListener('click', cerrarPopup);
-
-popupOverlay.addEventListener('click', (e) => {
-  if (e.target === popupOverlay) cerrarPopup();
-});
-
-popupBtn.addEventListener('click', () => {
-  const email = popupEmail.value.trim();
-
-  if (!email || !email.includes('@')) {
-    popupMensaje.textContent = '⚠️ Introduce un email válido.';
-    popupMensaje.style.color = '#e76f51';
-    return;
+  function cerrarPopup() {
+    popupOverlay.classList.remove("activo");
   }
 
-  popupMensaje.textContent = '✅ ¡Gracias! Te avisaremos de todas las novedades.';
-  popupMensaje.style.color = '#2a6a7a';
-  popupEmail.value = '';
+  popupCerrar.addEventListener("click", cerrarPopup);
+  popupOmitir.addEventListener("click", cerrarPopup);
 
-  setTimeout(() => cerrarPopup(), 2000);
+  popupOverlay.addEventListener("click", (e) => {
+    if (e.target === popupOverlay) cerrarPopup();
+  });
+
+  popupBtn.addEventListener("click", () => {
+    const email = popupEmail.value.trim();
+
+    if (!email || !email.includes("@")) {
+      popupMensaje.textContent = "⚠️ Introduce un email válido.";
+      popupMensaje.style.color = "#e76f51";
+      return;
+    }
+
+    popupMensaje.textContent =
+      "✅ ¡Gracias! Te avisaremos de todas las novedades.";
+    popupMensaje.style.color = "#2a6a7a";
+    popupEmail.value = "";
+
+    setTimeout(() => cerrarPopup(), 2000);
+  });
+
+  // FLIP EN MÓVIL
+  const isMobile = () => window.innerWidth <= 768;
+
+  document.querySelectorAll(".material-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      if (isMobile()) {
+        if (e.target.classList.contains("btn")) return;
+        card.classList.toggle("flipped");
+      }
+    });
+  });
 });
-});
-
-

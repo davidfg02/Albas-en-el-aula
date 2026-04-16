@@ -68,7 +68,7 @@ body {
   align-items: center;
   padding: 10px 24px;
   background-color: #b8e0eb;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .nav-logo img {
@@ -126,9 +126,11 @@ body {
 .hamburger.active span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
+
 .hamburger.active span:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger.active span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
@@ -149,7 +151,7 @@ body {
     width: 100%;
     background-color: #b8e0eb;
     padding: 12px 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   }
 
   .nav-menu.open {
@@ -243,6 +245,7 @@ body {
   border-radius: 8px;
   margin-bottom: 12px;
 }
+
 /*ALBITA*/
 .albita-card {
   background-color: #f0f8fc;
@@ -254,7 +257,7 @@ body {
 
 .albita-card:hover {
   transform: scale(1.01);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -269,6 +272,7 @@ body {
   color: #555;
   line-height: 1.6;
 }
+
 /*ALBA*/
 .alba-card {
   background-color: #fef3ec;
@@ -280,7 +284,7 @@ body {
 
 .alba-card:hover {
   transform: scale(1.01);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 .alba-card h3 {
@@ -356,7 +360,7 @@ body {
 
 .ofrecemos-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 .ofrecemos-icono {
@@ -389,6 +393,7 @@ body {
   margin-bottom: 8px;
 }
 
+/* Filtros */
 .filtros-wrapper {
   display: flex;
   flex-direction: column;
@@ -432,6 +437,7 @@ body {
   background-color: #b8e0eb;
 }
 
+/* Subfiltros*/
 .subfiltros {
   display: none;
   align-items: center;
@@ -503,7 +509,12 @@ body {
   transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.material-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -573,17 +584,20 @@ footer {
   margin: 0 auto 40px;
 }
 
-.footer-redes, .footer-formulario {
+.footer-redes,
+.footer-formulario {
   max-width: 350px;
 }
 
-.footer-redes h2, .footer-formulario h2 {
+.footer-redes h2,
+.footer-formulario h2 {
   font-size: 1.4rem;
   color: #2a6a7a;
   margin-bottom: 8px;
 }
 
-.footer-redes p, .footer-formulario p {
+.footer-redes p,
+.footer-formulario p {
   font-size: 0.9rem;
   color: #444;
   margin-bottom: 10px;
@@ -679,7 +693,7 @@ footer {
   display: none;
   position: fixed;
   inset: 0;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 200;
   align-items: center;
   justify-content: center;
@@ -791,7 +805,7 @@ footer {
   display: none;
   position: fixed;
   inset: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 300;
   align-items: center;
   justify-content: center;
