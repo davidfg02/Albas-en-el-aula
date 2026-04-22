@@ -7,6 +7,7 @@
     <title>Albas en el aula</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg" />
+    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 </head>
 
 <body>
@@ -15,8 +16,8 @@
         <p>🎉 ¡Nuevo temario disponible! <a href="#materiales" class="banner-link">Échale un vistazo.</a></p>
         <button class="banner-cerrar" id="banner-cerrar">✕</button>
     </div>
-    <!-- NAVBAR -->
 
+    <!-- NAVBAR -->
     <nav id="navbar">
         <a href="#hero" class="nav-logo">
             <img src="assets/img/logo.jpg" alt="Albas en el Aula" />
@@ -83,6 +84,7 @@
                     <p>Ideas prácticas para el día a día, tanto si ya estás en el aula como si estás preparándote.</p>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- MATERIALES -->
@@ -117,8 +119,6 @@
             </div>
 
             <div class="materiales-grid">
-                <!--OPOSICIONES -->
-                <!--recursos -->
                 <div class="material-card" data-categoria="oposiciones" data-subfiltro="recursos">
                     <div class="card-inner">
                         <div class="card-front">
@@ -128,9 +128,7 @@
                         </div>
                         <div class="card-back">
                             <h3>Flashcard bloque desarrollo</h3>
-                            <p>Flashcard de repaso de los temas del bloque de desarrollo para que vayas a tu examen con
-                                todo bajo
-                                control.</p>
+                            <p>Flashcard de repaso de los temas del bloque de desarrollo para que vayas a tu examen con todo bajo control.</p>
                             <a href="https://eduki.com/es/material/1956878/flashcards-bloque-desarrollo" class="btn">Comprar</a>
                         </div>
                     </div>
@@ -145,63 +143,24 @@
                         </div>
                         <div class="card-back">
                             <h3>Flashcard socialización y salud</h3>
-                            <p>Flashcard de repaso de los temas del bloque de socialización y salud para que vayas a tu examen con
-                                todo bajo
-                                control.</p>
+                            <p>Flashcard de repaso de los temas del bloque de socialización y salud para que vayas a tu examen con todo bajo control.</p>
                             <a href="https://eduki.com/es/material/1956860/flashcards-bloque-socializacion-y-salud" class="btn">Comprar</a>
                         </div>
                     </div>
                 </div>
-<!--
-                <div class="material-card" data-categoria="oposiciones" data-subfiltro="recursos">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <img src="assets/img/preguntas-tribunal.jpg" alt="Preguntas del tribunal"
-                                class="imagenes-card" />
-                            <h3>Preguntas del tribunal</h3>
-                            <p>Posibles preguntas del tribunal para preparar tu examen.</p>
-                        </div>
-                        <div class="card-back">
-                            <h3>Preguntas del tribunal</h3>
-                            <p>Posibles preguntas del tribunal después de la exposición oral.</p>
-                            <a href="#" class="btn">Comprar</a>
-                        </div>
-                    </div>
-                </div>
--->
-<!--
-                <div class="material-card" data-categoria="oposiciones" data-subfiltro="recursos">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <img src="assets/img/cuaderno-trabajo.jpg" alt="Cuaderno de trabajo"
-                                class="imagenes-card" />
-                            <h3>Cuaderno de Trabajo</h3>
-                            <p>Pack de fichas de trabajo listas para imprimir.</p>
-                        </div>
-                        <div class="card-back">
-                            <h3>Cuaderno de Trabajo</h3>
-                            <p>Pack de fichas de trabajo para educación infantil, listas para imprimir y usar en clase.
-                            </p>
-                            <a href="#" class="btn" onclick="return false;">Comprar</a>
-                        </div>
-                    </div>
-                </div>
--->
-                <!--consejos -->
+
                 <div class="material-card solo-subfiltro" data-categoria="oposiciones" data-subfiltro="consejos">
                     <div class="card-inner">
                         <div class="card-front">
                             <h2>Próximamente</h2>
                         </div>
                         <div class="card-back">
-                            <p>Estamos trabajando para darte lo antes posible consejos para afrontar tus oposiciones.
-                            </p>
+                            <p>Estamos trabajando para darte lo antes posible consejos para afrontar tus oposiciones.</p>
                             <p>Gracias por su paciencia</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- AULA -->
                 <div class="material-card solo-categoria" data-categoria="aula" data-subfiltro="todos">
                     <div class="card-inner">
                         <div class="card-front">
@@ -225,23 +184,23 @@
                 <h2>¡Síguenos!</h2>
                 <p>Cada semana subimos contenido nuevo para ayudarte en tu camino.</p>
                 <div class="redes-botones">
-                    <a href="https://www.tiktok.com/@albas.enelaula" class="red-btn tiktok" target="_blank">
-                        TikTok
-                    </a>
-                    <a href="https://www.instagram.com/albas.enelaula/" class="red-btn instagram" target="_blank">
-                        Instagram
-                    </a>
+                    <a href="https://www.tiktok.com/@albas.enelaula" class="red-btn tiktok" target="_blank">TikTok</a>
+                    <a href="https://www.instagram.com/albas.enelaula/" class="red-btn instagram" target="_blank">Instagram</a>
                 </div>
             </div>
 
             <div class="footer-formulario">
                 <h2>¿Quieres estar al día?</h2>
                 <p>Déjanos tu email y te avisamos cuando haya novedades.</p>
-                <div class="formulario">
-                    <input type="email" id="email-input" placeholder="tu@email.com" />
-                    <button class="btn" id="btn-suscribir">Suscribirme</button>
-                </div>
-                <p class="formulario-mensaje" id="formulario-mensaje"></p>
+                <form id="sib-form" method="POST" action="https://87b5e738.sibforms.com/serve/MUIFAJslZpfasH7i-AQxmJQDkEZuBAaKTkLrfjEoPTHrHq91Gucz8NK1AafIlYrKKnmU13g92gfIylUdnADUwzNR_S3Kop5Xjm3Z-jDmNFwNevUzGyJTs1ZlMi_U7NkgkmeNwhwWOz5Zgqnu-Sj2lYFkcLqVKAqfBgkE2W1H8eM3YoYx5hUOczroCNBbmhkcnti9Q-SSh7pbJRIuSQ==" data-type="subscription">
+                    <div class="formulario">
+                        <input type="email" id="EMAIL" name="EMAIL" placeholder="tu@email.com" autocomplete="off" required />
+                        <button type="submit" class="btn">Suscribirme</button>
+                    </div>
+                    <label class="entry__error entry__error--primary"></label>
+                    <input type="text" name="email_address_check" value="" class="input--hidden">
+                    <input type="hidden" name="locale" value="es">
+                </form>
             </div>
 
         </div>
@@ -251,8 +210,7 @@
     <!-- BOTÓN VOLVER ARRIBA -->
     <button class="btn-top" id="btn-top">↑</button>
 
-<!--
-    <-- POPUP NEWSLETTER --.>
+    <!-- POPUP NEWSLETTER -->
     <div class="popup-overlay" id="popup-overlay">
         <div class="popup">
             <button class="popup-cerrar" id="popup-cerrar">✕</button>
@@ -267,7 +225,22 @@
             <button class="popup-omitir" id="popup-omitir">Ahora no</button>
         </div>
     </div>
--->
+
+    <script>
+        window.REQUIRED_CODE_ERROR_MESSAGE = 'Elija un código de país';
+        window.LOCALE = 'es';
+        window.EMAIL_INVALID_MESSAGE = "La información proporcionada no es válida.";
+        window.REQUIRED_ERROR_MESSAGE = "Este campo no puede quedarse vacío.";
+        window.GENERIC_INVALID_MESSAGE = "La información proporcionada no es válida.";
+        window.translation = {
+            common: {
+                selectedList: '{quantity} lista seleccionada',
+                selectedLists: '{quantity} listas seleccionadas',
+            }
+        };
+        var AUTOHIDE = Boolean(0);
+    </script>
+    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 
