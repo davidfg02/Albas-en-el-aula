@@ -143,36 +143,31 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // POPUP NEWSLETTER
-  const popupOverlay = document.getElementById("popup-overlay");
-  const popupCerrar = document.getElementById("popup-cerrar");
-  const popupOmitir = document.getElementById("popup-omitir");
-  const popupBtn = document.getElementById("popup-btn");
+const popupOverlay = document.getElementById("popup-overlay");
+const popupCerrar = document.getElementById("popup-cerrar");
+const popupOmitir = document.getElementById("popup-omitir");
 
-  if (!localStorage.getItem("suscrito")) {
+if (!localStorage.getItem("suscrito")) {
     setTimeout(() => {
-      popupOverlay.classList.add("activo");
+        popupOverlay.classList.add("activo");
     }, 3000);
-  }
+}
 
-  function cerrarPopup() {
+function cerrarPopup() {
     popupOverlay.classList.remove("activo");
-  }
+}
 
-  popupCerrar.addEventListener("click", cerrarPopup);
-  popupOmitir.addEventListener("click", cerrarPopup);
+popupCerrar.addEventListener("click", cerrarPopup);
+popupOmitir.addEventListener("click", cerrarPopup);
 
-  popupOverlay.addEventListener("click", (e) => {
+popupOverlay.addEventListener("click", (e) => {
     if (e.target === popupOverlay) cerrarPopup();
-  });
+});
 
-  popupBtn.addEventListener("click", () => {
-    cerrarPopup();
-    window.location.href = "#siguenos";
-    setTimeout(() => {
-      const emailInput = document.getElementById("EMAIL");
-      if (emailInput) emailInput.focus();
-    }, 500);
-  });
+document.getElementById("sib-form-popup").addEventListener("submit", () => {
+    localStorage.setItem("suscrito", "true");
+    setTimeout(() => cerrarPopup(), 1000);
+});
 
   // FLIP EN MÓVIL
   const isMobile = () => window.innerWidth <= 768;
