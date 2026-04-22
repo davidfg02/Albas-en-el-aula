@@ -911,37 +911,3 @@ footer {
 .popup-omitir:hover {
   color: #555;
 }
-
-/* OPT-IN CHECKBOX */
-.optin-check {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin: 12px 0;
-  text-align: left;
-}
-
-.optin-check input {
-  margin-top: 3px;
-  accent-color: #2a6a7a;
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-
-.optin-check label {
-  font-size: 0.8rem;
-  color: #555;
-  line-height: 1.5;
-}
-
-.optin-check a {
-  color: #2a6a7a;
-  text-decoration: underline;
-  transition: color 0.3s;
-}
-
-.optin-check a:hover {
-  color: #f4a261;
-}
