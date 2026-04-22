@@ -15,10 +15,9 @@ La web sirve como punto de presentación y venta de materiales educativos: temar
 
 ----
 
-## 🚀 Demo
+## 🚀 Web
 
-> Próximamente en GitHub Pages
-
+https://davidfg02.github.io/Albas-en-el-aula/
 ---
 
 ## 🛠️ Tecnologías
