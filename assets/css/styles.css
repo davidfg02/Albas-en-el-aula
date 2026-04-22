@@ -814,6 +814,7 @@ footer {
   z-index: 300;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
 .popup-overlay.activo {
@@ -823,32 +824,31 @@ footer {
 .popup {
   background-color: white;
   border-radius: 24px;
-  padding: 40px 32px;
-  max-width: 420px;
-  width: 90%;
+  padding: 28px 24px 20px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
   text-align: center;
   position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
 }
 
 .popup-cerrar {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 14px;
+  right: 14px;
   background: none;
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
   color: #555;
   transition: color 0.3s;
+  z-index: 5;
 }
 
 .popup-cerrar:hover {
   color: #f4a261;
-}
-
-.popup-imagen {
-  font-size: 3rem;
-  margin-bottom: 16px;
 }
 
 .popup h3 {
@@ -864,50 +864,81 @@ footer {
   margin-bottom: 20px;
 }
 
-.popup-formulario {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-}
-
-.popup-formulario input {
-  padding: 12px 16px;
-  border-radius: 30px;
-  border: 2px solid #b8e0eb;
-  font-size: 0.9rem;
-  outline: none;
-  width: 100%;
-  transition: border-color 0.3s;
-}
-
-.popup-formulario input:focus {
-  border-color: #2a6a7a;
-}
-
-.popup-formulario .btn {
-  width: 100%;
-  text-align: center;
-}
-
-.popup-mensaje {
-  font-size: 0.85rem;
-  color: #2a6a7a;
-  font-weight: 500;
-  min-height: 20px;
-  margin-bottom: 0;
-}
-
 .popup-omitir {
   background: none;
   border: none;
   color: #aaa;
   font-size: 0.8rem;
   cursor: pointer;
-  margin-top: 12px;
+  margin-top: 14px;
   transition: color 0.3s;
 }
 
 .popup-omitir:hover {
   color: #555;
+}
+
+/* AJUSTES DEL FORMULARIO BREVO DENTRO DEL POPUP */
+.popup .sib-form-container {
+  margin-top: 10px;
+}
+
+.popup #sib-container {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 auto;
+  box-shadow: none;
+}
+
+.popup .sib-form-message-panel {
+  max-width: 100% !important;
+  margin: 0 auto 16px;
+}
+
+.popup .entry__field input,
+.popup input.input {
+  width: 100% !important;
+}
+
+.popup .sib-form-block__button {
+  width: 100%;
+  max-width: 100%;
+}
+
+.popup .sib-form__declaration {
+  text-align: left;
+}
+
+.popup .entry__specification {
+  display: block;
+  text-align: left;
+  margin-top: 8px;
+}
+
+/* BOTÓN DEL FOOTER PARA ABRIR EL POPUP */
+.footer-formulario .btn {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .popup {
+    padding: 22px 16px 18px;
+    border-radius: 20px;
+    max-height: 88vh;
+  }
+
+  .popup #sib-container {
+    border-radius: 18px !important;
+  }
+
+  .popup .sib-form-block div[style*="font-size:32px"] {
+    font-size: 1.6rem !important;
+  }
+
+  .popup .sib-form-block div[style*="font-size:43px"] {
+    font-size: 2.2rem !important;
+  }
 }

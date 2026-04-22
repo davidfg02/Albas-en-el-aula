@@ -4,36 +4,40 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("nav-menu");
 
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("open");
-  });
-
-  document.querySelectorAll(".nav-menu a").forEach((link) => {
-    link.addEventListener("click", () => {
-      hamburger.classList.remove("active");
-      navMenu.classList.remove("open");
+  if (hamburger && navMenu) {
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("open");
     });
-  });
+
+    document.querySelectorAll(".nav-menu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("open");
+      });
+    });
+  }
 
   // SECCIÓN ACTIVA EN NAVBAR
   const secciones = document.querySelectorAll("section, footer");
   const navLinks = document.querySelectorAll(".nav-menu a");
 
-  const observerNav = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        navLinks.forEach((link) => {
-          link.classList.remove("activo");
-          if (link.getAttribute("href") === `#${entry.target.id}`) {
-            link.classList.add("activo");
-          }
-        });
-      }
-    });
-  }, { threshold: 0.4 });
+  if (secciones.length && navLinks.length) {
+    const observerNav = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => {
+            link.classList.remove("activo");
+            if (link.getAttribute("href") === `#${entry.target.id}`) {
+              link.classList.add("activo");
+            }
+          });
+        }
+      });
+    }, { threshold: 0.4 });
 
-  secciones.forEach((seccion) => observerNav.observe(seccion));
+    secciones.forEach((seccion) => observerNav.observe(seccion));
+  }
 
   // SCROLL ANIMATIONS
   const observer = new IntersectionObserver((entries) => {
@@ -54,9 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const banner = document.getElementById("banner");
   const bannerCerrar = document.getElementById("banner-cerrar");
 
-  bannerCerrar.addEventListener("click", () => {
-    banner.style.display = "none";
-  });
+  if (banner && bannerCerrar) {
+    bannerCerrar.addEventListener("click", () => {
+      banner.style.display = "none";
+    });
+  }
 
   // FILTROS Y SUBFILTROS DE MATERIALES
   const filtros = document.querySelectorAll(".filtro-btn");
@@ -98,16 +104,16 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.classList.add("active");
       filtroActivo = btn.dataset.filtro;
 
-      subfiltrosAula.classList.remove("visible");
-      subfiltrosOposiciones.classList.remove("visible");
+      if (subfiltrosAula) subfiltrosAula.classList.remove("visible");
+      if (subfiltrosOposiciones) subfiltrosOposiciones.classList.remove("visible");
 
       subfiltroActivo = "todos";
       document.querySelectorAll(".subfiltro-btn").forEach((b) => b.classList.remove("active"));
       document.querySelectorAll('.subfiltro-btn[data-subfiltro="todos"]').forEach((b) => b.classList.add("active"));
 
-      if (filtroActivo === "aula") {
+      if (filtroActivo === "aula" && subfiltrosAula) {
         subfiltrosAula.classList.add("visible");
-      } else if (filtroActivo === "oposiciones") {
+      } else if (filtroActivo === "oposiciones" && subfiltrosOposiciones) {
         subfiltrosOposiciones.classList.add("visible");
       }
 
@@ -130,44 +136,71 @@ document.addEventListener("DOMContentLoaded", () => {
   // BOTÓN VOLVER ARRIBA
   const btnTop = document.getElementById("btn-top");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
-      btnTop.classList.add("visible");
-    } else {
-      btnTop.classList.remove("visible");
-    }
-  });
+  if (btnTop) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        btnTop.classList.add("visible");
+      } else {
+        btnTop.classList.remove("visible");
+      }
+    });
 
-  btnTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+    btnTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 
   // POPUP NEWSLETTER
-const popupOverlay = document.getElementById("popup-overlay");
-const popupCerrar = document.getElementById("popup-cerrar");
-const popupOmitir = document.getElementById("popup-omitir");
+  const popupOverlay = document.getElementById("popup-overlay");
+  const popupCerrar = document.getElementById("popup-cerrar");
+  const popupOmitir = document.getElementById("popup-omitir");
+  const abrirPopupNewsletter = document.getElementById("abrir-popup-newsletter");
+  const formularioNewsletter = document.getElementById("sib-form");
 
-if (!localStorage.getItem("suscrito")) {
+  function abrirPopup() {
+    if (popupOverlay) {
+      popupOverlay.classList.add("activo");
+    }
+  }
+
+  function cerrarPopup() {
+    if (popupOverlay) {
+      popupOverlay.classList.remove("activo");
+    }
+  }
+
+  if (popupOverlay && !localStorage.getItem("suscrito")) {
     setTimeout(() => {
-        popupOverlay.classList.add("activo");
+      abrirPopup();
     }, 3000);
-}
+  }
 
-function cerrarPopup() {
-    popupOverlay.classList.remove("activo");
-}
+  if (abrirPopupNewsletter) {
+    abrirPopupNewsletter.addEventListener("click", abrirPopup);
+  }
 
-popupCerrar.addEventListener("click", cerrarPopup);
-popupOmitir.addEventListener("click", cerrarPopup);
+  if (popupCerrar) {
+    popupCerrar.addEventListener("click", cerrarPopup);
+  }
 
-popupOverlay.addEventListener("click", (e) => {
-    if (e.target === popupOverlay) cerrarPopup();
-});
+  if (popupOmitir) {
+    popupOmitir.addEventListener("click", cerrarPopup);
+  }
 
-document.getElementById("sib-form-popup").addEventListener("submit", () => {
-    localStorage.setItem("suscrito", "true");
-    setTimeout(() => cerrarPopup(), 1000);
-});
+  if (popupOverlay) {
+    popupOverlay.addEventListener("click", (e) => {
+      if (e.target === popupOverlay) cerrarPopup();
+    });
+  }
+
+  if (formularioNewsletter) {
+    formularioNewsletter.addEventListener("submit", () => {
+      localStorage.setItem("suscrito", "true");
+      setTimeout(() => {
+        cerrarPopup();
+      }, 1000);
+    });
+  }
 
   // FLIP EN MÓVIL
   const isMobile = () => window.innerWidth <= 768;
@@ -177,6 +210,7 @@ document.getElementById("sib-form-popup").addEventListener("submit", () => {
       if (!isMobile()) return;
       if (e.target.classList.contains("btn")) return;
       e.stopPropagation();
+
       if (card.classList.contains("flipped")) {
         card.classList.remove("flipped");
       } else {
