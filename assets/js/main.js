@@ -150,57 +150,106 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // POPUP NEWSLETTER
-  const popupOverlay = document.getElementById("popup-overlay");
-  const popupCerrar = document.getElementById("popup-cerrar");
-  const popupOmitir = document.getElementById("popup-omitir");
-  const abrirPopupNewsletter = document.getElementById("abrir-popup-newsletter");
-  const formularioNewsletter = document.getElementById("sib-form");
+ // POPUP NEWSLETTER
+const popupOverlay = document.getElementById("popup-overlay");
+const popupCerrar = document.getElementById("popup-cerrar");
+const popupOmitir = document.getElementById("popup-omitir");
+const abrirPopupNewsletter = document.getElementById("abrir-popup-newsletter");
+const formularioNewsletter = document.getElementById("sib-form");
+const successMessage = document.getElementById("success-message");
+const errorMessage = document.getElementById("error-message");
 
-  function abrirPopup() {
-    if (popupOverlay) {
-      popupOverlay.classList.add("activo");
-    }
-  }
-
-  function cerrarPopup() {
-    if (popupOverlay) {
-      popupOverlay.classList.remove("activo");
-    }
-  }
-
-  if (popupOverlay && !localStorage.getItem("suscrito")) {
-    setTimeout(() => {
-      abrirPopup();
-    }, 3000);
-  }
-
-  if (abrirPopupNewsletter) {
-    abrirPopupNewsletter.addEventListener("click", abrirPopup);
-  }
-
-  if (popupCerrar) {
-    popupCerrar.addEventListener("click", cerrarPopup);
-  }
-
-  if (popupOmitir) {
-    popupOmitir.addEventListener("click", cerrarPopup);
-  }
-
+function abrirPopup() {
   if (popupOverlay) {
-    popupOverlay.addEventListener("click", (e) => {
-      if (e.target === popupOverlay) cerrarPopup();
-    });
+    popupOverlay.classList.add("activo");
   }
+}
 
-  if (formularioNewsletter) {
-    formularioNewsletter.addEventListener("submit", () => {
+function cerrarPopup() {
+  if (popupOverlay) {
+    popupOverlay.classList.remove("activo");
+  }
+}
+
+// Mostrar automáticamente a los 3 segundos si el usuario no se ha suscrito
+if (popupOverlay && !localStorage.getItem("suscrito")) {
+  setTimeout(() => {
+    abrirPopup();
+  }, 3000);
+}
+
+// Abrir popup al pulsar el botón del footer
+if (abrirPopupNewsletter) {
+  abrirPopupNewsletter.addEventListener("click", abrirPopup);
+}
+
+// Cerrar con la X
+if (popupCerrar) {
+  popupCerrar.addEventListener("click", cerrarPopup);
+}
+
+// Cerrar con "Ahora no"
+if (popupOmitir) {
+  popupOmitir.addEventListener("click", cerrarPopup);
+}
+
+// Cerrar al hacer click fuera del popup
+if (popupOverlay) {
+  popupOverlay.addEventListener("click", (e) => {
+    if (e.target === popupOverlay) {
+      cerrarPopup();
+    }
+  });
+}
+
+// No cerrar el popup inmediatamente al enviar
+if (formularioNewsletter) {
+  formularioNewsletter.addEventListener("submit", () => {
+    // No cerramos aquí.
+    // Esperamos a que Brevo muestre éxito o error.
+  });
+}
+
+// Detectar éxito real de Brevo
+if (successMessage) {
+  const observerSuccess = new MutationObserver(() => {
+    const estaVisible =
+      successMessage.style.display !== "none" &&
+      successMessage.offsetParent !== null;
+
+    if (estaVisible) {
       localStorage.setItem("suscrito", "true");
+
       setTimeout(() => {
         cerrarPopup();
-      }, 1000);
-    });
-  }
+      }, 4000);
+    }
+  });
+
+  observerSuccess.observe(successMessage, {
+    attributes: true,
+    attributeFilter: ["style", "class"]
+  });
+}
+
+// Detectar error real de Brevo
+if (errorMessage) {
+  const observerError = new MutationObserver(() => {
+    const estaVisible =
+      errorMessage.style.display !== "none" &&
+      errorMessage.offsetParent !== null;
+
+    if (estaVisible) {
+      // No cerramos el popup.
+      // Lo dejamos abierto para que el usuario vea el error.
+    }
+  });
+
+  observerError.observe(errorMessage, {
+    attributes: true,
+    attributeFilter: ["style", "class"]
+  });
+}
 
   // FLIP EN MÓVIL
   const isMobile = () => window.innerWidth <= 768;

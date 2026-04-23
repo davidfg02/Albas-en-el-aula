@@ -40,22 +40,24 @@ body {
   font-size: 1rem;
   cursor: pointer;
   opacity: 0.8;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
 }
 
 .banner-cerrar:hover {
   opacity: 1;
+  transform: scale(1.1);
 }
 
 .banner-link {
   color: white;
   font-weight: 700;
   text-decoration: underline;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
 }
 
 .banner-link:hover {
-  opacity: 0.8;
+  opacity: 85%;
+  transform: scale(1.1);
 }
 
 /* NAVBAR */
@@ -203,12 +205,13 @@ body {
   text-decoration: none;
   font-size: 1rem;
   font-weight: bold;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn:hover {
   background-color: #e76f51;
-  transform: scale(1.02);
+  transform: scale(1.1);
+  opacity: 85%;
 }
 
 /* QUIÉNES SOMOS */
@@ -491,13 +494,14 @@ body {
 .materiales-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+  gap: 50px;
   max-width: 900px;
   margin: 40px auto 0;
+  align-items: start;
 }
 
 .material-card {
-  height: 280px;
+  height: 320px;
   perspective: 1000px;
   cursor: pointer;
 }
@@ -528,8 +532,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 24px;
+  justify-content: flex-start;
+  padding: 20px;
+  gap: 6px;
 }
 
 .card-front {
@@ -555,22 +560,25 @@ body {
 
 .imagenes-card {
   width: 100%;
-  height: 180px;
+  height: 160px;
   object-fit: cover;
   border-radius: 12px;
-  margin-bottom: 12px;
+  flex-shrink: 0;
 }
 
 .card-front h3 {
   font-size: 1rem;
   color: #2a6a7a;
-  margin-bottom: 8px;
+  margin: 0;
+  text-align: center;
 }
 
 .card-front p {
   font-size: 0.85rem;
   color: #555;
-  line-height: 1.6;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
 }
 
 /* FOOTER */
@@ -792,7 +800,7 @@ footer {
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s, visibility 0.3s, background-color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, background-color 0.3s;
   z-index: 150;
 }
 
@@ -803,6 +811,8 @@ footer {
 
 .btn-top:hover {
   background-color: #f4a261;
+  transform: scale(1.1);
+  opacity: 0.85;
 }
 
 /* POPUP NEWSLETTER */
@@ -826,7 +836,7 @@ footer {
   border-radius: 24px;
   padding: 28px 24px 20px;
   max-width: 680px;
-  width: 100%;
+  width: 70%;
   max-height: 90vh;
   overflow-y: auto;
   text-align: center;
@@ -849,6 +859,7 @@ footer {
 
 .popup-cerrar:hover {
   color: #f4a261;
+  transform: scale(1.1);
 }
 
 .popup h3 {
@@ -871,7 +882,7 @@ footer {
   font-size: 0.8rem;
   cursor: pointer;
   margin-top: 14px;
-  transition: color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 
 .popup-omitir:hover {
@@ -898,11 +909,44 @@ footer {
 .popup .entry__field input,
 .popup input.input {
   width: 100% !important;
+  position: relative;
 }
 
-.popup .sib-form-block__button {
+/* INPUT EMAIL POPUP */
+.popup input[type="email"],
+.popup input[type="text"] {
   width: 100%;
+  padding: 12px 16px;
+  border-radius: 30px;
+  border: 2px solid #b8e0eb;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* FOCUS (cuando escribes) */
+.popup input:focus {
+  border-color: #2a6a7a;
+  box-shadow: 0 0 0 3px rgba(42, 106, 122, 0.12);
+}
+
+/* PLACEHOLDER */
+.popup input::placeholder {
+  color: #aaa;
+}
+
+/* BOTÓN REAL DEL FORMULARIO BREVO EN EL POPUP */
+.popup .sib-form-block__button {
+  width: 60%;
   max-width: 100%;
+  transition: background-color 0.3s ease, transform 0.3s ease !important;
+  cursor: pointer;
+}
+
+/* HOVER DEL BOTÓN */
+.popup .sib-form-block__button:hover {
+  background-color: #e76f51 !important;
+  transform: scale(1.1);
 }
 
 .popup .sib-form__declaration {
@@ -920,8 +964,13 @@ footer {
   display: inline-block;
   border: none;
   cursor: pointer;
+  transition: transform 0.3s;
 }
 
+.footer-formulario .btn:hover {
+  transform: scale(1.1);
+  opacity: 85%;
+}
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .popup {
