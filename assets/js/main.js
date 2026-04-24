@@ -133,6 +133,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   aplicarFiltros();
 
+  // FAQ ACORDEÓN
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+  item.querySelector('.faq-pregunta').addEventListener('click', () => {
+    const estaAbierto = item.classList.contains('abierto');
+    faqItems.forEach(i => i.classList.remove('abierto'));
+    if (!estaAbierto) {
+      item.classList.add('abierto');
+    }
+  });
+});
+
   // BOTÓN VOLVER ARRIBA
   const btnTop = document.getElementById("btn-top");
 
