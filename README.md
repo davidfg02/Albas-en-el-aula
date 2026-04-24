@@ -1,12 +1,12 @@
 #  👩🏻‍🏫 Albas en el Aula
 <p align="center">
-  <img src="https://img.shields.io/badge/STATUS-EN%20DESARROLLO-yellow">
+  <img src="https://img.shields.io/badge/STATUS-LIVE-success">
   <img src="https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=white">
   <img src="https://img.shields.io/badge/CSS-1572B6?logo=css&logoColor=white">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black">
   <img src="https://img.shields.io/badge/GitHub%20Pages-222222?logo=github&logoColor=white">
   <img src="https://img.shields.io/badge/Brevo-0B996E?logo=sendinblue&logoColor=white">
-  <img src="https://img.shields.io/badge/Payhip-4A90E2?logoColor=white">
+  <img src="https://img.shields.io/badge/Eduki-b8e0eb?logoColor=black">
 </p>
 
 Landing page oficial de **Albas en el Aula**, una cuenta educativa de TikTok e Instagram creada por dos maestras opositoras especializadas en Educación Infantil.
@@ -79,10 +79,13 @@ https://davidfg02.github.io/Albas-en-el-aula/
 
 ## 📦 Próximamente
 
-- Integración con **Brevo** para gestión de emails
 - Integración con **Payhip** para ventas de materiales
-- Página de catálogo independiente (`catalogo.html`)
-
+- **Galería de previsualizaciones** con fotos y vídeos de cada material
+- **Página de catálogo independiente** (`catalogo.html`) cuando el número de materiales crezca
+- Materiales para el **aula** — fichas, actividades y recursos
+- **Contador animado** con estadísticas reales (descargas, materiales disponibles...)
+- Mejoras de **accesibilidad** y rendimiento
+  
 ---
 
 ## 🏅 Créditos
@@ -91,7 +94,8 @@ Desarrollado por **David Fraile** como proyecto personal para **Albas en el Aula
 
 - TikTok: [@albas_en_el_aula](https://tiktok.com/@albas_en_el_aula)
 - Instagram: [@albas_en_el_aula](https://instagram.com/albas_en_el_aula)
-
+- Eduki: https://eduki.com/es/autor/3260472/albas-enelaula
+- LinkedIn: https://www.linkedin.com/in/david-fraile-dfg02/
 ---
 
 ## 📄 Licencia
